@@ -2,23 +2,22 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 Listing.propTypes = {
-    items: PropTypes.shape({
+    items: PropTypes.arrayOf(PropTypes.shape({
         title: PropTypes.string,
         url: PropTypes.string,
         listing_id: PropTypes.number,
         state: PropTypes.string,
         currency_code: PropTypes.string,
-        quantity: PropTypes.string,
-        price: PropTypes.number,
+        quantity: PropTypes.number,
+        price: PropTypes.string,
         MainImage: PropTypes.shape({
             url_570xN: PropTypes.string
         }),
-    })
+    }))
 };
 
 function Listing(props) {
     const {items} = props;
-    console.log(items);
     return (
         <div className={"item-list"}>
             {items.map(item => item && (item.state !== 'removed') &&
